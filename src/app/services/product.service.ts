@@ -11,7 +11,6 @@ export class ProductService {
   }
 
   update(product, productId) {
-    console.log("/products/"+ productId);
     return this.db.object("/products/"+ productId).update(product);
   }
 
@@ -21,6 +20,10 @@ export class ProductService {
 
   getById(productId) {
     return this.db.object("/products/" + productId);
+  }
+
+  delete(productId) {
+    return this.db.object("/products/" + productId).remove();
   }
 
 }

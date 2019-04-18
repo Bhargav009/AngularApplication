@@ -30,11 +30,14 @@ export class ProductFormComponent {
   }
 
   save(product) {
-    if (this.id) {
-      this.productService.update(product, this.id);
-    } else {
-      this.productService.create(product);
-    }
+    if (this.id) this.productService.update(product, this.id);
+    else this.productService.create(product);
+    this.router.navigate(["/admin/products"]);
+  }
+
+  delete() {
+    if(!confirm('Are you sure to delete the product?')) return;
+    this.productService.delete(this.id);
     this.router.navigate(["/admin/products"]);
   }
 }
