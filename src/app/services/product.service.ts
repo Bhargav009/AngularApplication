@@ -10,6 +10,11 @@ export class ProductService {
     return this.db.list("/products").push(product);
   }
 
+  update(product, productId) {
+    console.log("/products/"+ productId);
+    return this.db.object("/products/"+ productId).update(product);
+  }
+
   getAll() {
     return this.db.list("/products");
   }

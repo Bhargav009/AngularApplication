@@ -11,7 +11,8 @@ import "rxjs/add/operator/take";
 })
 export class ProductFormComponent {
   categories$;
-  product = "";
+  product = {};
+  id;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,16 +21,22 @@ export class ProductFormComponent {
     private productService: ProductService
   ) {
     this.categories$ = category.getCategories();
-    let id = this.activatedRoute.snapshot.paramMap.get("id");
-    if (id)
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    if (this.id)
       this.productService
-        .getById(id)
+        .getById(this.id)
         .take(1)
         .subscribe(product => (this.product = product));
   }
 
   save(product) {
-    this.productService.create(product);
+    console.log(product);
+    console.log(this.product);
+    if (this.id) {
+      this.productService.update(product, this.id);
+    } else {
+      this.productService.create(product);
+    }
     this.router.navigate(["/admin/products"]);
   }
 }
