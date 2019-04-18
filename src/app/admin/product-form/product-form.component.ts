@@ -30,8 +30,6 @@ export class ProductFormComponent {
   }
 
   save(product) {
-    console.log(product);
-    console.log(this.product);
     if (this.id) {
       this.productService.update(product, this.id);
     } else {
