@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./bs-nav-bar.component.css']
 })
 export class BsNavBarComponent {
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   logout() {
     this.auth.logout();

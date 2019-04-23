@@ -11,7 +11,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import { RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
  
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -32,7 +32,6 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
   declarations: [
     AppComponent,
     BsNavBarComponent,
-    HomeComponent,
     ProductsComponent,
     ShoppingCartComponent,
     CheckOutComponent,
@@ -52,7 +51,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path:'', component: HomeComponent},
+      {path:'', component: ProductsComponent},
       {path:'login', component: LoginComponent},
       {path:'products', component: ProductsComponent},
       {path:'shopping-cart', component: ShoppingCartComponent},
